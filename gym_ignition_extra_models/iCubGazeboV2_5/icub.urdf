@@ -1583,4 +1583,278 @@
     <gazebo>
         <pose>0.0 0.0 0.63 0.0 0.0 3.14</pose>
     </gazebo>
+    <gazebo reference="root_link">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="torso_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="torso_2">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="chest">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="neck_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="neck_2">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="head">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_hip_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_hip_2">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_hip_3">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_upper_leg">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_lower_leg">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_ankle_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_ankle_2">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_foot">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_shoulder_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_shoulder_2">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_shoulder_3">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_upper_arm">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_elbow_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_forearm">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_wrist_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="l_hand">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_hip_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_hip_2">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_hip_3">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_upper_leg">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_lower_leg">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_ankle_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_ankle_2">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_foot">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_shoulder_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_shoulder_2">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_shoulder_3">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_upper_arm">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_elbow_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_forearm">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_wrist_1">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+    <gazebo reference="r_hand">
+        <visual>
+            <material>
+                <diffuse>1 1 1 1</diffuse>
+            </material>
+        </visual>
+    </gazebo>
+
 </robot>

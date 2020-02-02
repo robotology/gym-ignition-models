@@ -1456,8 +1456,8 @@
                     <threshold>100000</threshold>
                 </bounce>
             </surface>
+            <max_contacts>4</max_contacts>
         </collision>
-        <maxContacts>4</maxContacts>
     </gazebo>
     <gazebo reference="r_foot">
         <collision>
@@ -1467,8 +1467,8 @@
                     <threshold>100000</threshold>
                 </bounce>
             </surface>
+            <max_contacts>4</max_contacts>
         </collision>
-        <maxContacts>4</maxContacts>
     </gazebo>
     <gazebo reference="r_hip_pitch">
         <implicitSpringDamper>1</implicitSpringDamper>

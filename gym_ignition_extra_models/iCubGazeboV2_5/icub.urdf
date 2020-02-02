@@ -1458,13 +1458,6 @@
             </surface>
         </collision>
         <maxContacts>4</maxContacts>
-        <kp>18000000</kp>
-        <kd>100</kd>
-        <maxVel>100</maxVel>
-        <minDepth>0.0001</minDepth>
-        <mu1>1</mu1>
-        <mu2>1</mu2>
-        <fdir1>0 0 0</fdir1>
     </gazebo>
     <gazebo reference="r_foot">
         <collision>
@@ -1476,13 +1469,6 @@
             </surface>
         </collision>
         <maxContacts>4</maxContacts>
-        <kp>18000000</kp>
-        <kd>100</kd>
-        <maxVel>100</maxVel>
-        <minDepth>0.0001</minDepth>
-        <mu1>1</mu1>
-        <mu2>1</mu2>
-        <fdir1>0 0 0</fdir1>
     </gazebo>
     <gazebo reference="r_hip_pitch">
         <implicitSpringDamper>1</implicitSpringDamper>

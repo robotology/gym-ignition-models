@@ -1,0 +1,11 @@
+.idea
+*.swp
+build*
+*.bak
+*.old
+Copy_of_*
+__pycache__
+*.egg-info
+*.cache
+dist/*
+.egg*

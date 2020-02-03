@@ -1,4 +1,4 @@
-<robot name="iCub">
+<robot name="iCubGazeboV2_5">
     <link name="root_link">
         <inertial>
             <origin xyz="0.0248821 0.000103947 -0.0440806"

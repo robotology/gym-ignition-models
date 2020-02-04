@@ -51,6 +51,7 @@ for robot_name in m.get_robot_names():
 | Robot Name | Screenshot |
 | ---------- | ---------- |
 | `ground_plane` | <img src="https://user-images.githubusercontent.com/469199/73735685-f3fa4b80-473f-11ea-897d-28fcac85f8a6.png" height="300"> |
+| `cartpole` | <img src="https://user-images.githubusercontent.com/469199/73771326-7570ce80-477e-11ea-82bc-d160d4bb88b8.png" height="300"> |
 | `iCubGazeboV2_5` | <img src="https://user-images.githubusercontent.com/469199/73731308-90205480-4738-11ea-876c-e9be502829ef.png" height="300"> |
 | `panda` | <img src="https://user-images.githubusercontent.com/469199/73738280-7f75db80-4744-11ea-805c-318e3b064847.png" height="300"> |
 

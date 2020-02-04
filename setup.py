@@ -23,7 +23,7 @@ class BuildExtension(build_ext):
     """
 
     # Name of the python package (the name used to import the module)
-    PACKAGE_NAME = "gym_ignition_extra_models"
+    PACKAGE_NAME = "gym_ignition_models"
 
     # Shared mesh directory
     SHARED_MESH_DIR = "meshes"
@@ -79,7 +79,7 @@ class BuildExtension(build_ext):
 
 
 setup(
-    name="gym-ignition-extra-models",
+    name="gym-ignition-models",
     version="1.0",
     author="Diego Ferigo",
     author_email="diego.ferigo@iit.it",
@@ -89,7 +89,7 @@ setup(
     python_requires='>=3.6',
     keywords="robot model robotics humanoid simulation urdf sdf icub",
     packages=find_packages(),
-    package_data={'gym_ignition_extra_models': [
+    package_data={'gym_ignition_models': [
       'meshes/*.*',
       'meshes/**/*.*',
       'meshes/**/**/*.*',
@@ -104,5 +104,5 @@ setup(
     cmdclass={
       'build_ext': BuildExtension,
     },
-    url="https://github.com/dic-iit/gym-ignition-extra-models",
+    url="https://github.com/dic-iit/gym-ignition-models",
 )

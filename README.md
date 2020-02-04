@@ -6,7 +6,7 @@
 <h4 align="center">Additional robot models for <a href="https://github.com/robotology/gym-ignition">gym-ignition</a></h4>
 </p>
 
-These models have been mainly tuned and tested to work in [Ignition Gazebo](ignitionrobotics.org/) and [PyBullet](https://pybullet.org/wordpress/).
+These models have been mainly tuned and tested to work in [Ignition Gazebo](https://ignitionrobotics.org/) and [PyBullet](https://pybullet.org/wordpress/).
 
 ### Setup
 

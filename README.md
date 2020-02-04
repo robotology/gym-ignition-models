@@ -50,5 +50,5 @@ for robot_name in m.get_robot_names():
 
 | Robot Name | Screenshot |
 | ---------- | ---------- |
-|            |            |
+| `ground_plane` | <img src="https://user-images.githubusercontent.com/469199/73735685-f3fa4b80-473f-11ea-897d-28fcac85f8a6.png" height="300"> |
 

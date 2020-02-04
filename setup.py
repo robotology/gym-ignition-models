@@ -30,6 +30,7 @@ class BuildExtension(build_ext):
 
     # Dict that defines the folders to copy during the build process
     FROM_ORIG_TO_DEST = {
+        f"{SHARED_MESH_DIR}/iCubGazeboV2_5": "iCubGazeboV2_5/meshes",
     }
 
     def run(self) -> None:

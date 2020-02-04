@@ -94,6 +94,7 @@ setup(
       'meshes/**/**/*.*',
       '*/meshes/*.*',
       '*/meshes/**/**/*.*',
+      '*/*.sdf',
       '*/*.urdf',
       '*/model.config',
     ]},

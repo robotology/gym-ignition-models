@@ -78,31 +78,53 @@ class BuildExtension(build_ext):
         shutil.rmtree(os.path.join(pkg_dir, self.SHARED_MESH_DIR))
 
 
+# Read the contents of your README file
+this_directory = os.path.abspath(os.path.dirname(__file__))
+with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
+
 setup(
     name="gym-ignition-models",
-    version="1.0",
     author="Diego Ferigo",
     author_email="diego.ferigo@iit.it",
     description="Additional robot models for RL simulations",
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     license="LGPL",
     platforms='any',
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Operating System :: POSIX :: Linux",
+        "Topic :: Games/Entertainment :: Simulation",
+        "Topic :: Scientific/Engineering :: Artificial Intelligence",
+        "Framework :: Robot Framework",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3 :: Only",
+        "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
+    ],
+    use_scm_version={
+        'local_scheme': 'dirty-tag',
+    },
+    setup_requires=['setuptools_scm'],
     python_requires='>=3.6',
     keywords="robot model robotics humanoid simulation urdf sdf icub",
     packages=find_packages(),
     package_data={'gym_ignition_models': [
-      'meshes/*.*',
-      'meshes/**/*.*',
-      'meshes/**/**/*.*',
-      '*/meshes/*.*',
-      '*/meshes/**/*.*',
-      '*/meshes/**/**/*.*',
-      '*/*.sdf',
-      '*/*.urdf',
-      '*/model.config',
+        'meshes/*.*',
+        'meshes/**/*.*',
+        'meshes/**/**/*.*',
+        '*/meshes/*.*',
+        '*/meshes/**/*.*',
+        '*/meshes/**/**/*.*',
+        '*/*.sdf',
+        '*/*.urdf',
+        '*/model.config',
     ]},
     ext_modules=[CopyMeshes()],
     cmdclass={
-      'build_ext': BuildExtension,
+        'build_ext': BuildExtension,
     },
     url="https://github.com/dic-iit/gym-ignition-models",
 )

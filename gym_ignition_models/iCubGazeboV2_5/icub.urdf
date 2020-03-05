@@ -1,4 +1,7 @@
 <robot name="iCubGazeboV2_5">
+  <gazebo>
+    <pose>0.0 0.0 0.63 0.0 0.0 0.0</pose>
+  </gazebo>
   <link name="root_link">
     <inertial>
       <origin xyz="0.0248821 0.000103947 -0.0440806"
@@ -1429,7 +1432,7 @@
   </joint>
   <link name="base_link"/>
   <joint name="base_fixed_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 3.14"/>
     <axis xyz="0 0 0"/>
     <parent link="base_link"/>
     <child link="root_link"/>
@@ -1595,9 +1598,6 @@
   </gazebo>
   <gazebo reference="neck_yaw">
     <implicitSpringDamper>1</implicitSpringDamper>
-  </gazebo>
-  <gazebo>
-    <pose>0.0 0.0 0.63 0.0 0.0 3.14</pose>
   </gazebo>
   <gazebo reference="root_link">
     <visual>

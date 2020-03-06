@@ -1,3 +1,7 @@
+<!-- This file is licensed under MIT license -->
+<!-- Copyright (c) 2018 Xue Bin Peng -->
+<!-- https://github.com/xbpeng/DeepMimic -->
+<!-- This URDF was generated converting the original custom robot description -->
 <robot name="character">
   <gazebo>
     <pose>0 0 0.885 0 0 0</pose>

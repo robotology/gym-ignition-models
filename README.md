@@ -55,4 +55,4 @@ for robot_name in m.get_robot_names():
 | `pendulum` | <img src="https://user-images.githubusercontent.com/469199/73772768-1b253d00-4781-11ea-88e7-b21340351549.png" height="300"> |
 | `iCubGazeboV2_5` | <img src="https://user-images.githubusercontent.com/469199/73731308-90205480-4738-11ea-876c-e9be502829ef.png" height="300"> |
 | `panda` | <img src="https://user-images.githubusercontent.com/469199/73738280-7f75db80-4744-11ea-805c-318e3b064847.png" height="300"> |
-
+| `character` | <img src="https://user-images.githubusercontent.com/469199/75965269-d8ae6780-5ec8-11ea-9712-605b600bf3b2.png" height="300"> |

@@ -61,3 +61,22 @@ def get_model_file(robot_name: str) -> str:
 
     model_abs_path = os.path.join(model_dir, models_found[0])
     return model_abs_path
+
+
+def get_model_string(robot_name: str) -> str:
+    """
+    Return the string containing the selected robot model.
+
+    Args:
+        robot_name: The name of the selected robot.
+
+    Returns:
+        A string containing the selected robot model.
+    """
+
+    model_file = get_model_file(robot_name=robot_name)
+
+    with open(model_file, "r") as f:
+        string = f.read()
+
+    return string

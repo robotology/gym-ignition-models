@@ -24,7 +24,7 @@ If you use Ignition Gazebo, you need to execute the following commands (from out
 
 ```sh
 PKG_DIR=$(python -c "import gym_ignition_models, inspect, os; print(os.path.dirname(inspect.getfile(gym_ignition_models)))")
-export SDF_FILE=$PKG_DIR:$SDF_FILE
+export SDF_PATH=$PKG_DIR:SDF_PATH
 ```
 
 If you want to make this change persistent, add the lines above to your `~/.bashrc`.

@@ -51,7 +51,7 @@ export SDF_PATH=$PKG_DIR:SDF_PATH
 
 If you want to make this change persistent, add the lines above to your `~/.bashrc`.
 
-**Note:** waiting an upstream fix, you also need to add to the `IGN_FILE_PATH` environment variable all the directories that contain model's meshes.
+**Note:** waiting an [upstream fix](https://bitbucket.org/osrf/sdformat/issues/227/error-loading-meshes-from-a-relative), you also need to add to the `IGN_FILE_PATH` environment variable all the directories that contain model's meshes.
 
 ### Usage
 

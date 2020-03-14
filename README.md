@@ -1,9 +1,27 @@
 <p align="center">
-<h1 align="center">gym-ignition-models</h1>
+  <h1 align="center">gym-ignition-models</h1>
 </p>
 
 <p align="center">
-<h4 align="center">Robot models for <a href="https://github.com/robotology/gym-ignition">gym-ignition</a></h4>
+  <a href="https://pypi.org/project/gym-ignition-models/">
+  <img src="https://img.shields.io/pypi/v/gym-ignition-models.svg" />
+  </a>
+  <a href="https://pypi.org/project/gym-ignition-models/">
+  <img src="https://img.shields.io/pypi/pyversions/gym-ignition-models.svg" />
+  </a>
+  <a href="https://pypi.org/project/gym-ignition-models/">
+  <img src="https://img.shields.io/pypi/status/gym-ignition-models.svg" />
+  </a>
+  <a href="https://pypi.org/project/gym-ignition-models/">
+  <img src="https://img.shields.io/pypi/format/gym-ignition-models.svg" />
+  </a>
+  <a href="https://pypi.org/project/gym-ignition-models/">
+  <img src="https://img.shields.io/pypi/l/gym-ignition-models.svg" />
+  </a>
+</p>
+
+<p align="center">
+  <h4 align="center">Robot models for <a href="https://github.com/robotology/gym-ignition">gym-ignition</a></h4>
 </p>
 
 These models have been mainly tuned and tested to work in [Ignition Gazebo](https://ignitionrobotics.org/).
@@ -13,6 +31,10 @@ These models have been mainly tuned and tested to work in [Ignition Gazebo](http
 This repository can be installed with the `pip` package manager as follows:
 
 ```bash
+# From PyPI
+pip3 install gym-ignition-models
+
+# From the repository (always containing the most recent changes)
 pip3 install git+https://github.com/dic-iit/gym-ignition-models.git
 ```
 

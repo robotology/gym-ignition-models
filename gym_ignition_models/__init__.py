@@ -4,6 +4,7 @@
 
 import os
 from typing import List
+from pathlib import Path
 
 
 def get_models_path() -> str:
@@ -80,3 +81,37 @@ def get_model_string(robot_name: str) -> str:
         string = f.read()
 
     return string
+
+
+def setup_environment() -> None:
+    """
+    Configure the environment variables.
+    """
+
+    models_path = Path(get_models_path())
+
+    if not models_path.exists():
+        raise NotADirectoryError(f"Failed to find path '{models_path}'")
+
+    # Setup the environment to find the models
+    if "SDF_PATH" in os.environ:
+        os.environ["SDF_PATH"] += f":{models_path}"
+    else:
+        os.environ["SDF_PATH"] = f"{models_path}"
+
+    # Models with mesh files
+    # Workaround for https://github.com/osrf/sdformat/issues/227
+    models_with_mesh = ["panda", "iCubGazeboV2_5", "iCubGazeboSimpleCollisionsV2_5"]
+
+    # Setup the environment to find the mesh files
+    for model in models_with_mesh:
+
+        model_path = Path(get_models_path()) / model
+
+        if not model_path.exists():
+            raise NotADirectoryError(f"Failed to find path '{model_path}'")
+
+        if "IGN_FILE_PATH" in os.environ:
+            os.environ["IGN_FILE_PATH"] += f':{model_path}'
+        else:
+            os.environ["IGN_FILE_PATH"] = f'{model_path}'

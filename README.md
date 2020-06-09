@@ -42,6 +42,8 @@ Only GNU/Linux distributions are currently supported.
 
 ### Configuration
 
+#### Standalone usage
+
 If you use Ignition Gazebo, you need to execute the following commands (from outside the directory where you cloned this repository):
 
 ```sh
@@ -52,6 +54,18 @@ export SDF_PATH=$PKG_DIR:SDF_PATH
 If you want to make this change persistent, add the lines above to your `~/.bashrc`.
 
 **Note:** waiting an [upstream fix](https://bitbucket.org/osrf/sdformat/issues/227/error-loading-meshes-from-a-relative), you also need to add to the `IGN_FILE_PATH` environment variable all the directories that contain model's meshes.
+
+#### Python usage
+
+If you're using the models from a Python program, we provide a helper function that updates the environment.
+Use the following code:
+
+```python
+import gym_ignition_models
+gym_ignition_models.setup_environment()
+```
+
+If you inspect the content of `os.environ` after this call, you'll find the environment variables already exported.
 
 ### Usage
 

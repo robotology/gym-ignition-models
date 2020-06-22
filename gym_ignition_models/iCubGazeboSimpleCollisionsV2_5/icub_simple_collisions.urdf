@@ -1414,6 +1414,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>5</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="torso_1">
     <visual>
@@ -1435,6 +1442,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>24674</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="neck_1">
     <visual>
@@ -1456,6 +1470,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>6553</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="l_hip_1">
     <visual>
@@ -1484,6 +1505,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>18</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="l_lower_leg">
     <visual>
@@ -1491,6 +1519,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>73</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="l_ankle_1">
     <visual>
@@ -1512,6 +1547,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>294</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="l_shoulder_1">
     <visual>
@@ -1540,6 +1582,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>1433</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="l_elbow_1">
     <visual>
@@ -1554,6 +1603,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>4710</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="l_wrist_1">
     <visual>
@@ -1568,6 +1624,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>18841</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="r_hip_1">
     <visual>
@@ -1596,6 +1659,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>10</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="r_lower_leg">
     <visual>
@@ -1603,6 +1673,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>49</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="r_ankle_1">
     <visual>
@@ -1624,6 +1701,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>198</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="r_shoulder_1">
     <visual>
@@ -1652,6 +1736,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>921</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="r_elbow_1">
     <visual>
@@ -1666,6 +1757,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>3174</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
   <gazebo reference="r_wrist_1">
     <visual>
@@ -1680,6 +1778,13 @@
         <diffuse>1 1 1 1</diffuse>
       </material>
     </visual>
+    <collision>
+      <surface>
+        <contact>
+          <collide_bitmask>12697</collide_bitmask>
+        </contact>
+      </surface>
+    </collision>
   </gazebo>
 
 </robot>

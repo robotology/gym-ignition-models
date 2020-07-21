@@ -12,7 +12,6 @@
                     <friction>
                         <ode>
                             <mu>100</mu>
-                            <mu2>50</mu2>
                         </ode>
                     </friction>
                 </surface>

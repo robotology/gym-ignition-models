@@ -1552,6 +1552,11 @@
         <contact>
           <collide_bitmask>294</collide_bitmask>
         </contact>
+        <friction>
+          <ode>
+            <mu>1</mu>
+          </ode>
+        </friction>
       </surface>
     </collision>
   </gazebo>
@@ -1706,6 +1711,11 @@
         <contact>
           <collide_bitmask>198</collide_bitmask>
         </contact>
+        <friction>
+          <ode>
+            <mu>1</mu>
+          </ode>
+        </friction>
       </surface>
     </collision>
   </gazebo>

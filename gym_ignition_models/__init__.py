@@ -115,3 +115,7 @@ def setup_environment() -> None:
             os.environ["IGN_FILE_PATH"] += f':{model_path}'
         else:
             os.environ["IGN_FILE_PATH"] = f'{model_path}'
+
+
+# Setup the environment when the package is imported
+setup_environment()

@@ -57,15 +57,8 @@ If you want to make this change persistent, add the lines above to your `~/.bash
 
 #### Python usage
 
-If you're using the models from a Python program, we provide a helper function that updates the environment.
-Use the following code:
-
-```python
-import gym_ignition_models
-gym_ignition_models.setup_environment()
-```
-
-If you inspect the content of `os.environ` after this call, you'll find the environment variables already exported.
+The environment variables are automatically exported when the package is imported.
+If your application imports also the `scenario` package, make sure to import `gym_ignition_models` first.
 
 ### Usage
 

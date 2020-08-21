@@ -1,0 +1,43 @@
+name: CI/CD
+
+on:
+  push:
+  pull_request:
+
+jobs:
+
+  build-n-publish:
+    name: Python Packaging
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version:
+          - 3.6
+
+    steps:
+
+      - uses: actions/checkout@master
+      - run: git fetch --prune --unshallow
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install basic tools
+        run: pip install wheel
+
+      - name: Create sdist
+        run: python setup.py sdist
+
+      - name: Install sdist
+        run: pip -v install dist/*
+
+      - name: Publish to PyPI
+        if: |
+          github.repository == 'robotology/gym-ignition' &&
+          github.ref == 'refs/heads/master' &&
+          github.event_name != 'pull_request'
+        uses: pypa/gh-action-pypi-publish@master
+        with:
+          password: ${{ secrets.pypi_password }}

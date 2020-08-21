@@ -35,7 +35,7 @@ jobs:
 
       - name: Publish to PyPI
         if: |
-          github.repository == 'robotology/gym-ignition' &&
+          github.repository == 'robotology/gym-ignition-models' &&
           github.ref == 'refs/heads/master' &&
           github.event_name != 'pull_request'
         uses: pypa/gh-action-pypi-publish@master

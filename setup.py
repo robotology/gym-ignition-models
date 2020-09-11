@@ -101,16 +101,13 @@ setup(
         "Framework :: Robot Framework",
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3 :: Only",
         "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
     ],
-    use_scm_version={
-        'local_scheme': 'dirty-tag',
-    },
+    use_scm_version=dict(local_scheme="dirty-tag"),
     setup_requires=['setuptools_scm'],
     python_requires='>=3.6',
-    keywords="robot model robotics humanoid simulation urdf sdf icub",
+    keywords="robot model robotics humanoid simulation gazebo ignition urdf sdf icub panda",
     packages=find_packages(),
     package_data={'gym_ignition_models': [
         'meshes/*.*',
@@ -124,8 +121,6 @@ setup(
         '*/model.config',
     ]},
     ext_modules=[CopyMeshes()],
-    cmdclass={
-        'build_ext': BuildExtension,
-    },
-    url="https://github.com/dic-iit/gym-ignition-models",
+    cmdclass=dict(build_ext=BuildExtension),
+    url="https://github.com/robotology/gym-ignition-models",
 )

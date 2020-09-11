@@ -29,9 +29,9 @@ class BuildExtension(build_ext):
     SHARED_MESH_DIR = "meshes"
 
     # Dict that defines the folders to copy during the build process
-    FROM_ORIG_TO_DEST = {
-        f"{SHARED_MESH_DIR}/iCubGazeboV2_5": "iCubGazeboV2_5/meshes",
-        f"{SHARED_MESH_DIR}/iCubGazeboV2_5": "iCubGazeboSimpleCollisionsV2_5/meshes",
+    FROM_DEST_TO_ORIG = {
+        "iCubGazeboV2_5/meshes": f"{SHARED_MESH_DIR}/iCubGazeboV2_5",
+        "iCubGazeboSimpleCollisionsV2_5/meshes": f"{SHARED_MESH_DIR}/iCubGazeboV2_5",
     }
 
     def run(self) -> None:
@@ -63,7 +63,7 @@ class BuildExtension(build_ext):
             raise RuntimeError(f"The build package directory '{pkg_dir}' does not exist")
 
         # Copy the folders
-        for orig, dest in self.FROM_ORIG_TO_DEST.items():
+        for dest, orig in self.FROM_DEST_TO_ORIG.items():
             orig_folder = os.path.join(pkg_dir, orig)
             dest_folder = os.path.join(pkg_dir, dest)
 

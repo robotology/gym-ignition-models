@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - 3.6
+          - 3.8
 
     steps:
 
@@ -25,13 +25,21 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install basic tools
-        run: pip install wheel
+        run: pip install setuptools_scm
 
-      - name: Create sdist
-        run: python setup.py sdist
+      - name: Create distributions
+        run: |
+          python setup.py sdist
+          pip wheel -w dist/ .
+          echo ""
+          echo "Distributions:"
+          ls -alh dist/
 
-      - name: Install sdist
-        run: pip -v install dist/*
+      - name: Rename wheel
+        run: |
+          sudo apt update
+          sudo apt install rename
+          find . -type f -name "*.whl" -exec rename -v "s/cp(\d)(\d)-cp(\d)(\d)-linux_x86_64/py3-none-any/g" {} +
 
       - name: Publish to PyPI
         if: |

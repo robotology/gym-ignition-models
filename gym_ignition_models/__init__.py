@@ -94,10 +94,10 @@ def setup_environment() -> None:
         raise NotADirectoryError(f"Failed to find path '{models_path}'")
 
     # Setup the environment to find the models
-    if "SDF_PATH" in os.environ:
-        os.environ["SDF_PATH"] += f":{models_path}"
+    if "IGN_GAZEBO_RESOURCE_PATH" in os.environ:
+        os.environ["IGN_GAZEBO_RESOURCE_PATH"] += f":{models_path}"
     else:
-        os.environ["SDF_PATH"] = f"{models_path}"
+        os.environ["IGN_GAZEBO_RESOURCE_PATH"] = f"{models_path}"
 
     # Models with mesh files
     # Workaround for https://github.com/osrf/sdformat/issues/227
@@ -111,10 +111,10 @@ def setup_environment() -> None:
         if not model_path.exists():
             raise NotADirectoryError(f"Failed to find path '{model_path}'")
 
-        if "IGN_FILE_PATH" in os.environ:
-            os.environ["IGN_FILE_PATH"] += f':{model_path}'
+        if "IGN_GAZEBO_RESOURCE_PATH" in os.environ:
+            os.environ["IGN_GAZEBO_RESOURCE_PATH"] += f':{model_path}'
         else:
-            os.environ["IGN_FILE_PATH"] = f'{model_path}'
+            os.environ["IGN_GAZEBO_RESOURCE_PATH"] = f'{model_path}'
 
 
 # Setup the environment when the package is imported

@@ -44,16 +44,23 @@ Only GNU/Linux distributions are currently supported.
 
 #### Standalone usage
 
-If you use Ignition Gazebo, you need to execute the following commands (from outside the directory where you cloned this repository):
+If you use Ignition Gazebo, you need to specify where the models and their dependent resources are located in the filesystem.
+The simulator reads the `IGN_GAZEBO_RESOURCE_PATH` environment variable.
+
+Execute the following commands from outside the directory where you cloned this repository to temporarily configure your environment:
 
 ```sh
 PKG_DIR=$(python -c "import gym_ignition_models, inspect, os; print(os.path.dirname(inspect.getfile(gym_ignition_models)))")
-export SDF_PATH=$PKG_DIR:SDF_PATH
+export IGN_GAZEBO_RESOURCE_PATH=$PKG_DIR:$IGN_GAZEBO_RESOURCE_PATH
 ```
 
 If you want to make this change persistent, add the lines above to your `~/.bashrc`.
 
-**Note:** waiting an [upstream fix](https://bitbucket.org/osrf/sdformat/issues/227/error-loading-meshes-from-a-relative), you also need to add to the `IGN_FILE_PATH` environment variable all the directories that contain model's meshes.
+**Note:** waiting an [upstream fix](https://github.com/osrf/sdformat/issues/227), you also need to add
+to `IGN_GAZEBO_RESOURCE_PATH` all the directories containing model's meshes.
+
+**Note:** Alternatively, instead of using `IGN_GAZEBO_RESOURCE_PATH`, you can use `SDF_PATH` for the models and
+`IGN_FILE_PATH` for the meshes.
 
 #### Python usage
 

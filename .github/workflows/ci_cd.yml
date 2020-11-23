@@ -3,6 +3,9 @@ name: CI/CD
 on:
   push:
   pull_request:
+  release:
+    types:
+      - published
 
 jobs:
 
@@ -44,8 +47,8 @@ jobs:
       - name: Publish to PyPI
         if: |
           github.repository == 'robotology/gym-ignition-models' &&
-          github.ref == 'refs/heads/master' &&
-          github.event_name != 'pull_request'
+          ((github.event_name == 'release' && github.event.action == 'published') ||
+           (github.event_name == 'push' && github.ref == 'refs/heads/master'))
         uses: pypa/gh-action-pypi-publish@master
         with:
           password: ${{ secrets.pypi_password }}

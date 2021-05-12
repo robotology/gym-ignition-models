@@ -3,8 +3,10 @@
 # GNU Lesser General Public License v2.1 or any later version.
 
 import os
-from typing import List
+import enum
+import tempfile
 from pathlib import Path
+from typing import IO, List, Union
 
 
 def get_models_path() -> str:
@@ -115,6 +117,104 @@ def setup_environment() -> None:
             os.environ["IGN_GAZEBO_RESOURCE_PATH"] += f':{model_path}'
         else:
             os.environ["IGN_GAZEBO_RESOURCE_PATH"] = f'{model_path}'
+
+
+class ResourceType(enum.Enum):
+
+    SDF_FILE = enum.auto()
+    SDF_PATH = enum.auto()
+    SDF_STRING = enum.auto()
+
+    URDF_FILE = enum.auto()
+    URDF_PATH = enum.auto()
+    URDF_STRING = enum.auto()
+
+
+def get_model_resource(robot_name: str,
+                       resource_type: ResourceType = ResourceType.URDF_PATH) \
+        -> Union[str, IO]:
+    """
+    Return the resource of the selected robot.
+
+    Args:
+        robot_name: The name of the selected robot.
+        resource_type: The type of the desired resource.
+
+    Returns:
+        The desired resource of the selected robot.
+    """
+
+    stored_model = get_model_file(robot_name=robot_name)
+
+    if not stored_model.endswith((".urdf", ".sdf")):
+        raise RuntimeError(f"Model '{robot_name} has no urdf nor sdf resource")
+
+    if stored_model.endswith(".urdf"):
+
+        if resource_type is ResourceType.URDF_PATH:
+            return stored_model
+
+        if resource_type is ResourceType.URDF_FILE:
+            return open(file=stored_model, mode="r+")
+
+        if resource_type is ResourceType.URDF_STRING:
+            with open(file=stored_model, mode="r+") as f:
+                return f.read()
+
+        if resource_type in {ResourceType.SDF_FILE,
+                             ResourceType.SDF_PATH,
+                             ResourceType.SDF_STRING}:
+            try:
+                from scenario import gazebo as scenario_gazebo
+            except ImportError:
+                msg = "URDF to SDF conversion requires the 'scenario' package"
+                raise RuntimeError(msg)
+
+        if resource_type is ResourceType.SDF_FILE:
+            file_name = Path(stored_model).with_suffix('').name
+            sdf_file = tempfile.NamedTemporaryFile(mode="w+",
+                                                   prefix=file_name,
+                                                   suffix=".sdf")
+            sdf_string = get_model_resource(robot_name=robot_name,
+                                            resource_type=ResourceType.SDF_STRING)
+            sdf_file.write(sdf_string)
+            return sdf_file
+
+        if resource_type is ResourceType.SDF_PATH:
+            file_name = Path(stored_model).with_suffix('').name
+            fd, sdf_path = tempfile.mkstemp(prefix=file_name,
+                                            suffix=".sdf",
+                                            text=True)
+            sdf_string = get_model_resource(robot_name=robot_name,
+                                            resource_type=ResourceType.SDF_STRING)
+            with open(sdf_path, "w") as f:
+                f.write(sdf_string)
+            return sdf_path
+
+        if resource_type is ResourceType.SDF_STRING:
+            from scenario import gazebo as scenario_gazebo
+            return scenario_gazebo.urdffile_to_sdfstring(urdf_file=stored_model)
+
+        raise ValueError(resource_type)
+
+    if stored_model.endswith(".sdf"):
+
+        if resource_type is ResourceType.SDF_PATH:
+            return stored_model
+
+        if resource_type in {ResourceType.URDF_FILE,
+                             ResourceType.URDF_PATH,
+                             ResourceType.URDF_STRING}:
+            raise ValueError("SDF to URDF conversion is not supported")
+
+        if resource_type is ResourceType.SDF_STRING:
+            with open(file=stored_model, mode="r+") as f:
+                return f.read()
+
+        if resource_type is ResourceType.SDF_FILE:
+            return open(file=stored_model, mode="r+")
+
+        raise ValueError(resource_type)
 
 
 # Setup the environment when the package is imported

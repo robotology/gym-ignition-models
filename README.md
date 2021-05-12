@@ -18,6 +18,9 @@
   <a href="https://pypi.org/project/gym-ignition-models/">
   <img src="https://img.shields.io/pypi/l/gym-ignition-models.svg" />
   </a>
+  <a href="https://github.com/robotology/gym-ignition-models/actions/workflows/ci_cd.yml">
+  <img src="https://github.com/robotology/gym-ignition-models/actions/workflows/ci_cd.yml/badge.svg" />
+  </a>
 </p>
 
 <p align="center">
@@ -26,23 +29,26 @@
 
 These models have been mainly tuned and tested to work in [Ignition Gazebo](https://ignitionrobotics.org/).
 
-### Setup
+## Installation
 
 This repository can be installed with the `pip` package manager as follows:
 
 ```bash
-# From PyPI
+# From PyPI (release versions)
 pip3 install gym-ignition-models
 
-# From the repository (always containing the most recent changes)
-pip3 install git+https://github.com/dic-iit/gym-ignition-models.git
+# From PyPI (pre-release versions)
+pip3 install --pre gym-ignition-models
+
+# From the repository
+pip3 install git+https://github.com/robotology/gym-ignition-models.git
 ```
 
 Only GNU/Linux distributions are currently supported.
 
-### Configuration
+## Configuration
 
-#### Standalone usage
+### Standalone usage
 
 If you use Ignition Gazebo, you need to specify where the models and their dependent resources are located in the filesystem.
 The simulator reads the `IGN_GAZEBO_RESOURCE_PATH` environment variable.
@@ -62,27 +68,32 @@ to `IGN_GAZEBO_RESOURCE_PATH` all the directories containing model's meshes.
 **Note:** Alternatively, instead of using `IGN_GAZEBO_RESOURCE_PATH`, you can use `SDF_PATH` for the models and
 `IGN_FILE_PATH` for the meshes.
 
-#### Python usage
+### Python usage
 
 The environment variables are automatically exported when the package is imported.
 If your application imports also the `scenario` package, make sure to import `gym_ignition_models` first.
 
-### Usage
+## Usage
 
-You can use these models either with the standalone simulators, or find and import them in your Python code. Here below an Python example of the utility functions provided by the package:
+You can use these models either with the standalone Ignition Gazebo simulator, or find and import them in your Python code. 
+Here below a Python example of the utility functions provided by the package:
 
 ```python
 import gym_ignition_models as m
 
-print(f"Models have been installed in {m.get_models_path()}")
+print(f"Models have been installed in: {m.get_models_path()}")
 print(f"Available robots: {m.get_robot_names()}")
-print("\nModel files:")
+print()
+print("Model files:")
 
 for robot_name in m.get_robot_names():
     print(f"{robot_name}: {m.get_model_file(robot_name)}")
 ```
 
-### Supported models
+The package also includes a `get_model_resource` function that provides string, URDF, or SDF descriptions of the supported models.
+It converts the descriptions internally, if needed.
+
+## Supported models
 
 | Robot Name | Screenshot |
 | ---------- | ---------- |
@@ -92,3 +103,7 @@ for robot_name in m.get_robot_names():
 | `iCubGazeboV2_5` </br> `iCubGazeboSimpleCollisionsV2_5` | <img src="https://user-images.githubusercontent.com/469199/73731308-90205480-4738-11ea-876c-e9be502829ef.png" height="300"> |
 | `panda` | <img src="https://user-images.githubusercontent.com/469199/73738280-7f75db80-4744-11ea-805c-318e3b064847.png" height="300"> |
 | `character` | <img src="https://user-images.githubusercontent.com/469199/75965269-d8ae6780-5ec8-11ea-9712-605b600bf3b2.png" height="300"> |
+
+## License
+
+[LGPL v2.1](https://choosealicense.com/licenses/lgpl-2.1/) or any later version.

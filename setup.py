@@ -19,7 +19,7 @@ class CopyMeshes(Extension):
 class BuildExtension(build_ext):
     """
     Setuptools build extension handler.
-    It processes all the extensions listed in the 'ext_modules' entry.
+    It processes all the extensions listed in the "ext_modules" entry.
     """
 
     # Name of the python package (the name used to import the module)
@@ -81,46 +81,52 @@ class BuildExtension(build_ext):
 
 # Read the contents of your README file
 this_directory = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+with open(os.path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
     name="gym-ignition-models",
     author="Diego Ferigo",
     author_email="diego.ferigo@iit.it",
-    description="Additional robot models for RL simulations",
+    description="Collection of robot models for the Ignition Gazebo simulator",
     long_description=long_description,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
+    url="https://github.com/robotology/gym-ignition-models",
+    project_urls={
+        "Bug Tracker": "https://github.com/robotology/gym-ignition-models/issues",
+        "Source Code": "https://github.com/robotology/gym-ignition-models",
+    },
+    keywords=["model", "description", "urdf", "sdf", "gazebo", "ignition", "robot",
+               "robotics", "panda", "icub", "simulation"],
     license="LGPL",
-    platforms='any',
+    platforms="any",
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Operating System :: POSIX :: Linux",
         "Topic :: Games/Entertainment :: Simulation",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Framework :: Robot Framework",
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
-        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)",
     ],
     use_scm_version=dict(local_scheme="dirty-tag"),
-    setup_requires=['setuptools_scm'],
-    python_requires='>=3.6',
-    keywords="robot model robotics humanoid simulation gazebo ignition urdf sdf icub panda",
+    setup_requires=["setuptools_scm"],
+    python_requires=">=3.6",
     packages=find_packages(),
-    package_data={'gym_ignition_models': [
-        'meshes/*.*',
-        'meshes/**/*.*',
-        'meshes/**/**/*.*',
-        '*/meshes/*.*',
-        '*/meshes/**/*.*',
-        '*/meshes/**/**/*.*',
-        '*/*.sdf',
-        '*/*.urdf',
-        '*/model.config',
+    package_data={"gym_ignition_models": [
+        "meshes/*.*",
+        "meshes/**/*.*",
+        "meshes/**/**/*.*",
+        "*/meshes/*.*",
+        "*/meshes/**/*.*",
+        "*/meshes/**/**/*.*",
+        "*/*.sdf",
+        "*/*.urdf",
+        "*/model.config",
     ]},
     ext_modules=[CopyMeshes()],
     cmdclass=dict(build_ext=BuildExtension),
-    url="https://github.com/robotology/gym-ignition-models",
+    zip_safe=False,
 )

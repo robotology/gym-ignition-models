@@ -140,6 +140,12 @@ def get_model_resource(robot_name: str,
         robot_name: The name of the selected robot.
         resource_type: The type of the desired resource.
 
+    Note:
+        If a format conversion is performed, this method creates a temporary file.
+        If ``ResourceType.*_FILE`` is used, the file gets automatically deleted when
+        it goes out of scope. Instead, if ``ResourceType._*PATH`` is used, the caller
+        is responsible to delete it.
+
     Returns:
         The desired resource of the selected robot.
     """

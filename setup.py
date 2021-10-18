@@ -3,7 +3,6 @@
 # GNU Lesser General Public License v2.1 or any later version.
 
 import os
-import platform
 import shutil
 
 import setuptools
@@ -38,9 +37,6 @@ class BuildExtension(build_ext):
     def run(self) -> None:
         if len(self.extensions) != 1 or not isinstance(self.extensions[0], CopyMeshes):
             raise RuntimeError("This class can only build one CopyMeshes object")
-
-        if platform.system() != "Linux":
-            raise RuntimeError("Only Linux is currently supported")
 
         for ext in self.extensions:
             self.build_extension(ext)

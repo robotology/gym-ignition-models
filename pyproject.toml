@@ -1,3 +1,20 @@
+# Copyright (C) 2021 Istituto Italiano di Tecnologia (IIT). All rights reserved.
+# This software may be modified and distributed under the terms of the
+# GNU Lesser General Public License v2.1 or any later version.
 [build-system]
-requires = ["setuptools>=40.8.0", "wheel", "setuptools_scm"]
+requires = [
+    "wheel",
+    "setuptools>=45",
+    "setuptools_scm[toml]>=6.0",
+]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+local_scheme = "dirty-tag"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3

@@ -2,8 +2,8 @@
 # This software may be modified and distributed under the terms of the
 # GNU Lesser General Public License v2.1 or any later version.
 
-import os
 import enum
+import os
 import tempfile
 from pathlib import Path
 from typing import IO, List, Union
@@ -17,7 +17,7 @@ def get_models_path() -> str:
         A string containing the path of the models.
     """
     models_dir = os.path.join(os.path.dirname(__file__))
-    return models_dir + '/'
+    return models_dir + "/"
 
 
 def get_robot_names() -> List[str]:
@@ -114,9 +114,9 @@ def setup_environment() -> None:
             raise NotADirectoryError(f"Failed to find path '{model_path}'")
 
         if "IGN_GAZEBO_RESOURCE_PATH" in os.environ:
-            os.environ["IGN_GAZEBO_RESOURCE_PATH"] += f':{model_path}'
+            os.environ["IGN_GAZEBO_RESOURCE_PATH"] += f":{model_path}"
         else:
-            os.environ["IGN_GAZEBO_RESOURCE_PATH"] = f'{model_path}'
+            os.environ["IGN_GAZEBO_RESOURCE_PATH"] = f"{model_path}"
 
 
 class ResourceType(enum.Enum):
@@ -130,9 +130,9 @@ class ResourceType(enum.Enum):
     URDF_STRING = enum.auto()
 
 
-def get_model_resource(robot_name: str,
-                       resource_type: ResourceType = ResourceType.URDF_PATH) \
-        -> Union[str, IO]:
+def get_model_resource(
+    robot_name: str, resource_type: ResourceType = ResourceType.URDF_PATH
+) -> Union[str, IO]:
     """
     Return the resource of the selected robot.
 
@@ -167,9 +167,11 @@ def get_model_resource(robot_name: str,
             with open(file=stored_model, mode="r+") as f:
                 return f.read()
 
-        if resource_type in {ResourceType.SDF_FILE,
-                             ResourceType.SDF_PATH,
-                             ResourceType.SDF_STRING}:
+        if resource_type in {
+            ResourceType.SDF_FILE,
+            ResourceType.SDF_PATH,
+            ResourceType.SDF_STRING,
+        }:
             try:
                 from scenario import gazebo as scenario_gazebo
             except ImportError:
@@ -177,28 +179,29 @@ def get_model_resource(robot_name: str,
                 raise RuntimeError(msg)
 
         if resource_type is ResourceType.SDF_FILE:
-            file_name = Path(stored_model).with_suffix('').name
-            sdf_file = tempfile.NamedTemporaryFile(mode="w+",
-                                                   prefix=file_name,
-                                                   suffix=".sdf")
-            sdf_string = get_model_resource(robot_name=robot_name,
-                                            resource_type=ResourceType.SDF_STRING)
+            file_name = Path(stored_model).with_suffix("").name
+            sdf_file = tempfile.NamedTemporaryFile(
+                mode="w+", prefix=file_name, suffix=".sdf"
+            )
+            sdf_string = get_model_resource(
+                robot_name=robot_name, resource_type=ResourceType.SDF_STRING
+            )
             sdf_file.write(sdf_string)
             return sdf_file
 
         if resource_type is ResourceType.SDF_PATH:
-            file_name = Path(stored_model).with_suffix('').name
-            fd, sdf_path = tempfile.mkstemp(prefix=file_name,
-                                            suffix=".sdf",
-                                            text=True)
-            sdf_string = get_model_resource(robot_name=robot_name,
-                                            resource_type=ResourceType.SDF_STRING)
+            file_name = Path(stored_model).with_suffix("").name
+            fd, sdf_path = tempfile.mkstemp(prefix=file_name, suffix=".sdf", text=True)
+            sdf_string = get_model_resource(
+                robot_name=robot_name, resource_type=ResourceType.SDF_STRING
+            )
             with open(sdf_path, "w") as f:
                 f.write(sdf_string)
             return sdf_path
 
         if resource_type is ResourceType.SDF_STRING:
             from scenario import gazebo as scenario_gazebo
+
             return scenario_gazebo.urdffile_to_sdfstring(urdf_file=stored_model)
 
         raise ValueError(resource_type)
@@ -208,9 +211,11 @@ def get_model_resource(robot_name: str,
         if resource_type is ResourceType.SDF_PATH:
             return stored_model
 
-        if resource_type in {ResourceType.URDF_FILE,
-                             ResourceType.URDF_PATH,
-                             ResourceType.URDF_STRING}:
+        if resource_type in {
+            ResourceType.URDF_FILE,
+            ResourceType.URDF_PATH,
+            ResourceType.URDF_STRING,
+        }:
             raise ValueError("SDF to URDF conversion is not supported")
 
         if resource_type is ResourceType.SDF_STRING:
